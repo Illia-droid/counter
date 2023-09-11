@@ -17,16 +17,16 @@ class CounterSection extends Component {
   };
 
   handleBlur = ({ target: { value } }) => {
-    if (value==="") {
+    if (value === "") {
       this.setState({ step: 1 });
     }
   };
 
   render() {
-    const { step} = this.state;
+    const { step } = this.state;
     return (
-        <div className={styles["counter-section-container"]}>
-        <Counter step={step} />
+      <div className={styles["counter-section-container"]}>
+        <Counter />
         <input
           type="number"
           value={step}

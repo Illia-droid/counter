@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styles from "./Counter.module.css";
 class Counter extends Component {
+  /**
+   * 
+   * @param {number} step 
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +73,7 @@ class Counter extends Component {
       this.state;
     const { step } = this.props;
     return (
-        <section className={styles["counter-section"]}>
+      <section className={styles["counter-section"]}>
         <h2>count: {count}</h2>
         <h2>step: {step}</h2>
         <h2>timerStopWatch: {timerStopWatch}</h2>
@@ -77,10 +82,18 @@ class Counter extends Component {
           {isAdd ? "plus" : "minus"}
         </button>
         <button onClick={this.handleSwitchRow}>switch row</button>
-        <button onClick={this.autoClicker} disabled={isAutoClicking}>AutoClick</button>
+        <button onClick={this.autoClicker} disabled={isAutoClicking}>
+          AutoClick
+        </button>
       </section>
     );
   }
 }
 
+Counter.propTypes = {
+  step: PropTypes.number.isRequired,
+};
+Counter.defaultProps = {
+  step: 1,
+};
 export default Counter;
